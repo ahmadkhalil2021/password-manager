@@ -16,10 +16,15 @@ const App = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white flex flex-col items-center justify-center">
+    <div className="min-h-screen bg-gray-900 text-white flex flex-col items-center justify-center p-4 sm:p-6 lg:p-8">
       {user ? (
         <>
-          <button onClick={handleLogout} className="bg-red-500 px-4 py-2 mt-4 rounded-md ml-[1000px]">Logout</button>
+          <button
+            onClick={handleLogout}
+            className="bg-red-500 px-6 py-2 mt-4 rounded-md sm:self-center"
+          >
+            Logout
+          </button>
           <PasswordManager user={user} />
         </>
       ) : (

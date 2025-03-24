@@ -36,8 +36,8 @@ const PasswordManager = ({ user }) => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white flex flex-col items-center py-10">
-      <h2 className="text-3xl font-bold mb-6">🗝️ Passwort-Manager</h2>
+    <div className="min-h-screen bg-gray-900 text-white flex flex-col items-center py-10 px-4 sm:px-6 lg:px-8">
+      <h2 className="text-3xl font-bold mb-6 text-center">🗝️ Passwort-Manager</h2>
 
       <div className="bg-gray-800 p-6 rounded-lg shadow-lg w-full max-w-md">
         <input
@@ -54,15 +54,15 @@ const PasswordManager = ({ user }) => {
           onChange={(e) => setPassword(e.target.value)}
           className="w-full p-2 mb-3 bg-gray-700 rounded-md"
         />
-        <button onClick={savePassword} className="w-full bg-blue-500 hover:bg-blue-600 py-2 rounded-md">
+        <button onClick={savePassword} className="w-full bg-blue-500 hover:bg-blue-600 py-2 rounded-md mt-2">
           Speichern
         </button>
       </div>
 
-      <h3 className="text-xl font-bold mt-6">Gespeicherte Passwörter</h3>
-      <ul className="mt-4 w-full max-w-md">
+      <h3 className="text-xl font-bold mt-6 text-center">Gespeicherte Passwörter</h3>
+      <ul className="mt-4 w-full max-w-md space-y-3">
         {passwords.map((p) => (
-          <li key={p.id} className="bg-gray-800 p-3 rounded-lg flex justify-between items-center mb-2">
+          <li key={p.id} className="bg-gray-800 p-3 rounded-lg flex justify-between items-center">
             <span>
               <strong>{p.name}:</strong> {p.password}
             </span>
