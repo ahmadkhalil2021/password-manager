@@ -19,7 +19,7 @@ const App = () => {
     <div className="min-h-screen bg-gray-900 text-white flex flex-col items-center justify-center">
       {user ? (
         <>
-          <button onClick={handleLogout} className="bg-red-500 px-4 py-2 mt-4 rounded-md ml-96">Logout</button>
+          <button onClick={handleLogout} className="bg-red-500 px-4 py-2 mt-4 rounded-md ml-[1000px]">Logout</button>
           <PasswordManager user={user} />
         </>
       ) : (
