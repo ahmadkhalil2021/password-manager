@@ -57,7 +57,7 @@ const PasswordManager = ({ user }) => {
           className="w-full p-2 mb-3 bg-gray-700 rounded-md"
         />
         <input
-          type="password"
+          type="text"
           placeholder="Passwort"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
