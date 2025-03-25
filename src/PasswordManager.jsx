@@ -4,6 +4,7 @@ import { encryptPassword, decryptPassword } from "./encryption";
 
 const PasswordManager = ({ user }) => {
   const [passwords, setPasswords] = useState([]);
+  const [website, setWebsite] = useState("");
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
 
@@ -24,9 +25,10 @@ const PasswordManager = ({ user }) => {
 
   const savePassword = async () => {
     const encryptedPassword = encryptPassword(password);
-    await supabase.from("passwords").insert([{ name, password: encryptedPassword, user_id: user.id }]);
+    await supabase.from("passwords").insert([{ name, password: encryptedPassword, user_id: user.id, website }]);
     setName("");
     setPassword("");
+    setWebsite("");
     fetchPasswords();
   };
 
@@ -40,6 +42,13 @@ const PasswordManager = ({ user }) => {
       <h2 className="text-3xl font-bold mb-6 text-center">🗝️ Passwort-Manager</h2>
 
       <div className="bg-gray-800 p-6 rounded-lg shadow-lg w-full max-w-md">
+        <input
+          type="text"
+          placeholder="website"
+          value={website}
+          onChange={(e) => setWebsite(e.target.value)}
+          className="w-full p-2 mb-3 bg-gray-700 rounded-md"
+        />
         <input
           type="text"
           placeholder="Name (z. B. Gmail)"
@@ -64,7 +73,7 @@ const PasswordManager = ({ user }) => {
         {passwords.map((p) => (
           <li key={p.id} className="bg-gray-800 p-3 rounded-lg flex justify-between items-center">
             <span>
-              <strong>{p.name}:</strong> {p.password}
+              website<strong>{p.website}, </strong><strong>{p.name}:</strong> {p.password}
             </span>
             <button onClick={() => deletePassword(p.id)} className="bg-red-500 hover:bg-red-600 px-3 py-1 rounded-md">
               Löschen
