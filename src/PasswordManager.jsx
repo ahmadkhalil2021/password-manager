@@ -1,12 +1,17 @@
 import { useEffect, useState } from "react";
 import { supabase } from "./supabase";
 import { encryptPassword, decryptPassword } from "./encryption";
+import {Icon} from 'react-icons-kit';
+import {eyeOff} from 'react-icons-kit/feather/eyeOff';
+import {eye} from 'react-icons-kit/feather/eye'
 
 const PasswordManager = ({ user }) => {
   const [passwords, setPasswords] = useState([]);
   const [website, setWebsite] = useState("");
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
+  const [type, setType] = useState('password');
+  const [icon, setIcon] = useState(eyeOff);
 
   useEffect(() => {
     fetchPasswords();
@@ -36,6 +41,16 @@ const PasswordManager = ({ user }) => {
     await supabase.from("passwords").delete().match({ id });
     fetchPasswords();
   };
+  
+  const handleToggle = () => {
+   if (type==='password'){
+      setIcon(eye);
+      setType('text')
+   } else {
+    setIcon(eyeOff)
+    setType('password')
+   }
+  }
 
   return (
     <div className="min-h-screen bg-gray-900 text-white flex flex-col items-center py-10 px-4 sm:px-6 lg:px-8">
@@ -57,12 +72,15 @@ const PasswordManager = ({ user }) => {
           className="w-full p-2 mb-3 bg-gray-700 rounded-md"
         />
         <input
-          type="text"
+          type={type}
           placeholder="Passwort"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           className="w-full p-2 mb-3 bg-gray-700 rounded-md"
         />
+        <span class="flex justify-around items-center" onClick={handleToggle}>
+          <Icon class="absolute mr-10" icon={icon} size={25}/>
+        </span>
         <button onClick={savePassword} className="w-full bg-blue-500 hover:bg-blue-600 py-2 rounded-md mt-2">
           Speichern
         </button>
