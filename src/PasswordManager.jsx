@@ -73,7 +73,7 @@ const PasswordManager = ({ user }) => {
         {passwords.map((p) => (
           <li key={p.id} className="bg-gray-800 p-3 rounded-lg flex justify-between items-center">
             <span>
-              website<strong>{p.website}, </strong><strong>{p.name}:</strong> {p.password}
+              <strong>{p.website}, </strong><strong>{p.name}:</strong> {p.password}
             </span>
             <button onClick={() => deletePassword(p.id)} className="bg-red-500 hover:bg-red-600 px-3 py-1 rounded-md">
               Löschen
