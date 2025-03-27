@@ -3,7 +3,7 @@ import { supabase } from "./supabase";
 import { encryptPassword, decryptPassword } from "./encryption";
 import { Eye, EyeOff } from "lucide-react";
 
-const PasswordManager = ({ user }) => {
+const PasswordManager = ({ user, traslation: t }) => {
   const [passwords, setPasswords] = useState([]);
   const [website, setWebsite] = useState("");
   const [name, setName] = useState("");
@@ -91,12 +91,12 @@ const PasswordManager = ({ user }) => {
           onClick={savePassword}
           className="w-full bg-blue-500 hover:bg-blue-600 py-2 rounded-md mt-2"
         >
-          Speichern
+          {t("save")}
         </button>
       </div>
 
       <h3 className="text-xl font-bold mt-6 text-center">
-        Gespeicherte Passwörter
+        {t("saved_passwords")}
       </h3>
       <ul className="mt-4 w-full max-w-md space-y-3">
         {passwords.map((p) => (
@@ -112,7 +112,7 @@ const PasswordManager = ({ user }) => {
               onClick={() => deletePassword(p.id)}
               className="bg-red-500 hover:bg-red-600 px-3 py-1 rounded-md"
             >
-              Löschen
+              {t("delete")}
             </button>
           </li>
         ))}
