@@ -4,5 +4,6 @@
   "confirm_message": "bitte bestätigen Sie Ihre E-Mail und melden Sie sich dann an",
   "save": "Speichern",
   "saved_passwords": "Gespeicherte Passwörter",
-  "delete": "Löschen"
+  "delete": "Löschen",
+  "logout": "Ausloggen"
 }

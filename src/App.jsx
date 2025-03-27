@@ -59,7 +59,7 @@ const App = () => {
             onClick={handleLogout}
             className="bg-red-500 px-6 py-2 mt-4 rounded-md sm:self-center"
           >
-            Logout
+            {t("logout")}
           </button>
           <PasswordManager user={user} traslation={t} />
         </>

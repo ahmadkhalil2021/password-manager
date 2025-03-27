@@ -4,5 +4,6 @@
   "confirm_message": "please confirm your email and then login",
   "save": "save",
   "saved_passwords": "Saved passwords",
-  "delete": "delete"
+  "delete": "delete",
+  "logout": "Logout"
 }
